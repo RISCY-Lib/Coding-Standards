@@ -1,0 +1,38 @@
+\chapter{White Space}
+
+  White space is key to readable code.
+  As such it is key to develop a singular style for it's use across a code base.
+
+  \section{Indentation}
+
+    \begin{keybox}[Spaces]
+      \textbf{Use spaces only for indentation.}
+    \end{keybox}
+
+    Each indentation level should correspond to \textbf{2} spaces.
+
+    All modern editors can be set to emit spaces when the tab key is hit.
+
+  \section{Newlines}
+
+    Newlines should be used to break code into logical segments.
+
+    However, minimize the use of newlines in code.
+    This is more guidance than strict rule.
+    In particular, don't put more than one or two blank lines between functions, resist starting functions with a blank line, don't end functions with a blank line, and be sparing with your use of blank lines.
+
+    The basic principle is: The more code that fits on one screen, the easier it is to follow and understand the control flow of the program.
+    Use whitespace purposefully to provide separation in that flow.
+
+  \section{Line Length}
+
+    Each line of text in the code should be at most 100 characters in length (including indentation).
+
+    A line may exceed 100 characters if one of the following is met:
+    \begin{itemize}
+      \item It is a comment which is not able to be split without hindering readability or usability (e.g. ease of copy-paste or auto linking)
+      \item A String literal which cannot be easily wrapped
+      \item An include statement
+      \item A header guard
+      \item A using declaration
+    \end{itemize}

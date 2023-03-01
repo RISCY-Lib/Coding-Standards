@@ -1,0 +1,58 @@
+\documentclass[12pt]{report}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Imports and formatting
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{./common/latex_packages.tex}
+\input{./common/emphasis_boxes.tex}
+\input{./common/latex_packages.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Document Information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{System Verilog Coding Standards}
+\author{Benjamin Davis, \href{mailto:allrisc.dev@gmail.com}{allrisc.dev@gmail.com}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header Footer Information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\fancypagestyle{title}{
+  \fancyhf{}
+  \fancyhead[R]{System Verilog Coding Standards}
+  \fancyfoot[L]{\copyright Benjamin Davis (under GPL3)}
+  \fancyfoot[R]{Page \thepage \ of \pageref{LastPage}}
+}
+
+\fancypagestyle{title}{
+  \fancyhf{}
+  \fancyhead[R]{System Verilog Coding Standards}
+  \fancyfoot[L]{\copyright Benjamin Davis (under GPL3)}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Float Settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Start Document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+  \pagestyle{title}
+  \maketitle
+
+  \pagestyle{plain}
+  \tableofcontents
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Chapter 1 - Purpose
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \import{chapters/}{purpose.tex}
+
+\end{document}

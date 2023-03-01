@@ -1,0 +1,42 @@
+\chapter{Naming}
+
+  Once white-space allows the code to be easily read, the next area which drastically improves code comprehension is good naming.
+
+  This chapter outlines the standards which should be used a vast majority of cases for naming signals and variables.
+
+  \section{Naming Schemes}
+    This section lists the type of naming scheme which is used in this chapter.
+
+    \begin{itemize}
+      \item \textbf{Snake Case}: \verb+snake_case+
+      \item \textbf{Upper Snake Case}: \verb+UPPER_SNAKE_CASE+
+      \item \textbf{Camel Case}: \verb+camelCase+
+      \item \textbf{Upper Camel Case}: \verb+UpperCamelCase+
+    \end{itemize}
+
+  \section{General Guidance}
+    Choose names which are the most readable.
+    This a mix between length and context.
+
+    Names should describe the purpose of a signal or object.
+    Do not be overly concerned with horizontal space.
+    It is far more beneficial for the code to be immediately understandable by someone who is brand-new to the code base.
+    Towards this end:
+    \begin{itemize}
+      \item Minimize the use of abbreviations which would likely be unknown to a brand-new contributor
+      \item Do no abbreviate by deleting letters within a word
+      \item Use a descriptiveness which is appropriate given the scope of the signal/object
+      \begin{itemize}
+        \item For example $n$ may be appropriate within a 10 line counting function, but likely not as a class member variable.
+      \end{itemize}
+    \end{itemize}
+
+    \lstinputlisting[style=SV, caption=General Naming Examples]{naming/general_naming_examples.sv}
+
+  \section{Signals}
+
+  \section{Types}
+
+  \section{Constants}
+
+  \section{Modules and Classes}
