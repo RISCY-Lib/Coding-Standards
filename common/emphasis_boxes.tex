@@ -7,7 +7,7 @@
 \newcommand{\defboxautorefname}{Definition}
 
 % Create the definition box
-\newenvironment{defbox}[1][]{ 
+\newenvironment{defbox}[1][]{
   \refstepcounter{defbox}
 
   % If no title given
@@ -55,7 +55,7 @@
 \newcommand{\algoboxautorefname}{Algorithm}
 
 % Create the definition box
-\newenvironment{algobox}[1][]{ 
+\newenvironment{algobox}[1][]{
   \refstepcounter{algobox}
 
   % If no title given
@@ -105,11 +105,11 @@
   \ifstrempty{#1}
   {
     \mdfsetup{
-      frametitle={
-        \tikz[baseline=(current bounding box.east), outer sep=0pt]
-        \node[anchor=east,rectangle,fill=orange!30]
-          {\strut Key Point};
-      }
+      % frametitle={
+      %   \tikz[baseline=(current bounding box.east), outer sep=0pt]
+      %   \node[anchor=east,rectangle,fill=orange!30]
+      %     {\strut Key Point};
+      % }
     }
   }{
     \mdfsetup{

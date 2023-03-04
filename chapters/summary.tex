@@ -1,0 +1,55 @@
+\chapter{Summary}
+\label{summary}
+
+  Robert C. Martin, author of \textit{Clean Code: A Handbook of Agile Software Craftsmanship}, famously said:
+  \begin{quote}
+  Indeed, the ratio of time spent reading versus writing is well over 10 to 1.
+  We are constantly reading old code as part of the effort to write new code.
+  ... [Therefore,] making it easy to read makes it easier to write.
+  \end{quote}
+  This quote certainly holds true whether the code is traditional software, RTL, or Verification frameworks.
+  Thus this document puts forward a set of rules and guidelines for writing easy to understand and consistent SystemVerilog.
+
+  A vast majority of these rules apply to SystemVerilog for synthesis and for verification.
+  When this is not the case it will be noted and further guidance shall be provided.
+
+  While these are referred to as rules, they may not be the correct solution for all code-bases.
+  When an instance arises where a developer feels that there is a method of writing the code which is clearer they should be empowered to do so.
+  But, in general these moments are few and far-between, so the developer is asked to think critically about whether this approach is truly better.
+
+  \section{Terminology}
+  \label{summary:terminology}
+
+    Unless otherwise stated, the following terminology conventions apply to the guidance layed out in this document:
+
+    \begin{itemize}
+      \item The word \textbf{must} indicates a mandatory requirement.
+      \item Similarly, \textbf{do not} indcations a strict prohibition.
+      \item The word \textbf{recommended} indicates a strong suggestion that should be applied, unless the implications and reasons for taking an alternative approach are completely understood.
+      \item The word \textbf{may} indicates a course of action is permitted and optional.
+      \item The word \textbf{can} indicates a course of action is possible given material, physical, or causal constraints.
+    \end{itemize}
+
+  \section{General}
+  \label{summary:general}
+
+    The following general style constraints must be adhered:
+
+    \begin{itemize}
+      \item Generally, \hyperref[naming]{names} should be descriptive and avoid abbreviations.
+      \item Non-ASCII characters are forbidden.
+      \item Indentation uses spaces, no tabs. Indentation is two spaces for nesting.
+      \item Place a space between \texttt{if} and the parenthesis in conditional expressions.
+      \item Use horizontal whitespace around operators, and avoid trailing whitespace at the end of lines.
+    \end{itemize}
+
+  \section{Which Verilog to Use}
+  \label{summary:which_verilog_to_use}
+
+    \begin{keybox}
+      \textbf{Prefer SystemVerilog-2017.}
+    \end{keybox}
+
+    All RTL and tests should be developed in SystemVerilog, following the \href{https://ieeexplore.ieee.org/document/8299595}{IEEE 1800-2017 (SystemVerilog-2017) standard}, except for \hyperref[language_features:problematic_language_features]{prohibited features}.
+
+    The standards document is available free of cost through \href{https://ieeexplore.ieee.org/browse/standards/get-program/page/series?id=80}{IEEE GET} (a registration is required).

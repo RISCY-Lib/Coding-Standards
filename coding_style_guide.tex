@@ -12,23 +12,23 @@
 % Document Information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{System Verilog Coding Standards}
+\title{System Verilog Style Guide}
 \author{Benjamin Davis, \href{mailto:allrisc.dev@gmail.com}{allrisc.dev@gmail.com}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Header Footer Information
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\fancypagestyle{title}{
+\fancypagestyle{plain}{
   \fancyhf{}
-  \fancyhead[R]{System Verilog Coding Standards}
+  \fancyhead[R]{System Verilog Style Guide}
   \fancyfoot[L]{\copyright Benjamin Davis (under GPL3)}
   \fancyfoot[R]{Page \thepage \ of \pageref{LastPage}}
 }
 
 \fancypagestyle{title}{
   \fancyhf{}
-  \fancyhead[R]{System Verilog Coding Standards}
+  \fancyhead[R]{System Verilog Style Guide}
   \fancyfoot[L]{\copyright Benjamin Davis (under GPL3)}
 }
 
@@ -51,8 +51,38 @@
   \tableofcontents
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  % Chapter 1 - Purpose
+  % Chapter 1 - Summary
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-  \import{chapters/}{purpose.tex}
+  \import{chapters/}{summary.tex}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Chapter 2 - SystemVerilog Conventions
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \import{chapters/}{systemverilog_conventions.tex}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Chapter 3 - Naming
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \import{chapters/}{naming.tex}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Chapter 4 - Language Features
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \import{chapters/}{language_features.tex}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Chapter 5 - Design Conventions
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \import{chapters/}{design_conventions.tex}
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  % Appendices
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \appendix
+
+  \import{appendices/}{condensed_guide.tex}
+  \import{appendices/}{basic_template.tex}
 
 \end{document}
