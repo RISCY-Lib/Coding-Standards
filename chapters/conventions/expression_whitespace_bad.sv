@@ -1,0 +1,1 @@
+assign reg_val=((addr==reg_addr)&&enabled)?reg_r:~reg_r;

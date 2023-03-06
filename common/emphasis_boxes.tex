@@ -1,14 +1,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Definition Box
+% Incorrect Style Box
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Create a definition counter
-\newcounter{defbox}[chapter]\setcounter{defbox}{0}
-\renewcommand{\thedefbox}{\arabic{chapter}.\arabic{defbox}}
-\newcommand{\defboxautorefname}{Definition}
+% Create a incorrect style counter
+\newcounter{badbox}[chapter]\setcounter{badbox}{0}
+\renewcommand{\thebadbox}{\arabic{chapter}.\arabic{badbox}}
+\newcommand{\badboxautorefname}{Incorrect}
 
 % Create the definition box
-\newenvironment{defbox}[1][]{
-  \refstepcounter{defbox}
+\newenvironment{badbox}[1][]{
+  \refstepcounter{badbox}
 
   % If no title given
   \ifstrempty{#1}
@@ -16,16 +16,18 @@
     \mdfsetup{
       frametitle={
         \tikz[baseline=(current bounding box.east), outer sep=0pt]
-        \node[anchor=east,rectangle,fill=blue!30]
-          {\strut Definition~\thedefbox};
+        \node[anchor=east,rectangle,fill=red!30]
+          %{\strut Incorrect~\thebadbox};
+          {\strut Incorrect};
       }
     }
   }{
     \mdfsetup{
       frametitle={
         \tikz[baseline=(current bounding box.east), outer sep=0pt]
-        \node[anchor=east,rectangle,fill=blue!30]
-          {\strut Definition~\thedefbox:~#1};
+        \node[anchor=east,rectangle,fill=red!30]
+          % {\strut Incorrect~\thebadbox:~#1};
+          {\strut Incorrect:~#1};
       }
     }
   }
@@ -33,7 +35,7 @@
   % Regardless of title given
   \mdfsetup{
     innertopmargin=12pt,
-    linecolor=blue!75,
+    linecolor=red!75,
     linewidth=2pt,
     topline=true,
     frametitleaboveskip=\dimexpr-\ht\strutbox\relax,
@@ -47,16 +49,16 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Algorithm Box
+% Correct Style Box
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Create a algorithm counter
-\newcounter{algobox}[chapter]\setcounter{algobox}{0}
-\renewcommand{\thealgobox}{\arabic{chapter}.\arabic{algobox}}
-\newcommand{\algoboxautorefname}{Algorithm}
+% Create a correct style counter
+\newcounter{goodbox}[chapter]\setcounter{goodbox}{0}
+\renewcommand{\thegoodbox}{\arabic{chapter}.\arabic{goodbox}}
+\newcommand{\goodboxautorefname}{Algorithm}
 
 % Create the definition box
-\newenvironment{algobox}[1][]{
-  \refstepcounter{algobox}
+\newenvironment{goodbox}[1][]{
+  \refstepcounter{goodbox}
 
   % If no title given
   \ifstrempty{#1}
@@ -65,7 +67,8 @@
       frametitle={
         \tikz[baseline=(current bounding box.east), outer sep=0pt]
         \node[anchor=east,rectangle,fill=green!30]
-          {\strut Algorithm~\thealgobox};
+          % {\strut Correct~\thegoodbox};
+          {\strut Correct};
       }
     }
   }{
@@ -73,7 +76,8 @@
       frametitle={
         \tikz[baseline=(current bounding box.east), outer sep=0pt]
         \node[anchor=east,rectangle,fill=green!30]
-          {\strut Algorithm~\thealgobox:~#1};
+          % {\strut Correct~\thegoodbox:~#1};
+          {\struct Correct:~#1};
       }
     }
   }

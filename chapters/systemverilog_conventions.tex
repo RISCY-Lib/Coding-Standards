@@ -1,26 +1,302 @@
+% cspell:ignore POSIX
+
 \chapter{SystemVerilog Conventions}
 \label{systemverilog_conventions}
 
-  This chapter seeks to standardize asthetic aspects of SystemVerilog.
+  This chapter seeks to standardize aesthetic aspects of SystemVerilog.
 
   \section{General File Rules}
+  \label{systemverilog_conventions:general_file_rules}
 
     \subsection{File Extensions}
+    \label{systemverilog_conventions:general_file_rules:file_extensions}
+      Use the \texttt{.sv} extension for SystemVerilog files (or \texttt{.svh} for files that are included via the preprocessor).
+
+      File extensions have the following meanings:
+
+      \begin{itemize}
+      \item \texttt{.sv} indicates a SystemVerilog file.
+      \item \texttt{.svh} indicates a SystemVerilog header file intended to be included in another file using the \texttt{`{}include} directive.
+      \item \texttt{.v} indicates a Verilog file.
+      \item \texttt{.vh} indicates a Verilog header file.
+      \end{itemize}
+
+      Only \texttt{.sv} and \texttt{.v} files are intended to be compilation units.
+      \texttt{.svh} and \texttt{.vh} files may only be \texttt{`{}include}d into other files.
+
+      With exceptions of netlist files, each \texttt{.sv} or \texttt{.v} file should contain only one module, and the name should be associated.
+      For instance, file \texttt{foo.sv} should contain only the module \texttt{foo}.
+
     \subsection{Characters}
+    \label{systemverilog_conventions:general_file_rules:characters}
+
+      \begin{keybox}
+        Use only ASCII characters with UNIX-style line endings(\texttt{\" \textbackslash n\"}).
+      \end{keybox}
+
+    \subsection{POSIX File Endings}
+    \label{systemverilog_conventions:general_file_rules:posix_file_endings}
+
+      \begin{keybox}
+        All lines on non-empty files must end with a newline (\texttt{\" \textbackslash n\"}).
+      \end{keybox}
+
     \subsection{Line Length}
+    \label{systemverilog_conventions:general_file_rules:systemverilog_conventions:general_file_rules:line_length}
+
+      \begin{keybox}
+        Wrap the code at 100 characters per line.
+      \end{keybox}
+
+      The maximum line length for style-compliant Verilog code is 100 characters per line.
+
+      Exceptions:
+
+      \begin{itemize}
+        \item Any place where line wraps are impossible (for example, an include path might extend past 100 characters).
+      \end{itemize}
+
+      Line-wrapping contains additional guidelines on how to wrap long lines.
+
     \subsection{No Tabs}
-    \subsection{Trailing Whitespace}
+    \label{systemverilog_conventions:general_file_rules:no_tabs}
+
+      \begin{keybox}
+        Do not use tabs anywhere.
+      \end{keybox}
+
+      Use spaces to indent or align text. See Indentation for rules about indentation and wrapping.
+
+      To convert tabs to spaces on any file, you can use the UNIX expand utility.
+
+    \subsection{No Trailing Spaces}
+    \label{systemverilog_conventions:general_file_rules:no_trailing_spaces}
+
+      \begin{keybox}
+        Delete trailing whitespace at the end of lines.
+      \end{keybox}
 
   \section{Begin and End}
+  \label{systemverilog_conventions:begin_and_end}
+
+    \begin{keybox}
+      Use \lstinline{begin} and \lstinline{end} unless the entire statement fits on one line.
+    \end{keybox}
+
+    If a statement cannot fit on a single line then the statement(s) must be enclosed in a \lstinline{begin} and \lstinline{end} block.
+
+    \begin{goodbox}
+      \lstinputlisting{./conventions/multiline_begin_end.sv}
+    \end{goodbox}
+
+    \begin{goodbox}
+      \lstinputlisting{./conventions/single_line_no_begin_end.sv}
+    \end{goodbox}
+
+    \begin{badbox}
+      \lstinputlisting{./conventions/multiline_begin_end_bad.sv}
+    \end{badbox}
+
+    The \lstinline{begin} must be on the same line as the prior keyword.
+    \lstinline{begin} must end the line.
+    \lstinline{end} must occupy it's own line.
+    When multiple \lstinline{end} are found sequentially, they should be accommodated by a label (or comment) to clarify which \lstinline{begin} this \lstinline{end} corresponds with.
+
+    \begin{goodbox}
+      \lstinputlisting{./conventions/begin_end_else.sv}
+    \end{goodbox}
+
+    \begin{badbox}
+      \lstinputlisting{./conventions/begin_end_else_bad.sv}
+    \end{badbox}
+
+    The above \lstinline{begin} this \lstinline{end} principles also apply to case statements.
+
+    \begin{goodbox}
+      \lstinputlisting{./conventions/case_begin_end.sv}
+    \end{goodbox}
+
+    \begin{badbox}
+      \lstinputlisting{./conventions/case_begin_end_bad.sv}
+    \end{badbox}
 
   \section{Indentation}
+  \label{systemverilog_conventions:indentation}
+
+    \begin{keybox}
+      Indentation must be two spaces per level.
+      Tab characters must be expanded to spaces.
+    \end{keybox}
+
+    Modern editors can/should be set to produce spaces when the tab key is hit.
+
+    \begin{keybox}
+      An additional level of indentation must be added between paired keywords.
+      (e.g. \lstinline{begin / end}, \lstinline{module / endmodule}, \lstinline{task / endtask}, \lstinline{function / endfunction}, etc.)
+    \end{keybox}
+
+    \subsection{Wrapping Lines}
+    \label{systemverilog_conventions:indentation:wrapping_lines}
+
+      When wrapping long expressions to multiple lines one of the following approaches should be used:
+
+      \begin{itemize}
+        \item Indent the continuation line by 4-spaces.
+        \item Align the line continuation with an opening parentheses or brace on the first line.
+      \end{itemize}
+
+      Additionally, opening parentheses or braces which end a line in the wrapped expression should be closed with the respective character on their own line.
+
+      \begin{goodbox}
+        \lstinputlisting{./conventions/line_wrapping.sv}
+      \end{goodbox}
+
+    \subsection{Justification}
+    \label{systemverilog_conventions:indentation:justification}
+
+      Virtually every coding standard in the world has moved to using spaces instead of tabs.
+      This has mainly been driven by a desire for consistency.
+
+      While tabs allow individual developers to choose their personal preference for spacing of tabs,
+        this invariably impacts the spacing of wrapped lines.
+      Additionally, when adding tabbed lines to a code base which uses spaces, it is likely that the number of tabs
+        will be chosen to match the current code base, rather than the match the true indentation level.
+
+      To avoid these issues spaces are required.
+
+      So far as the number of spaces is concerned this is more personal preference.
+      Python's official guidelines specify 4-spaces, while most of Google's coding standards enforce 2-spaces (the Linux kernel guidelines even specify 8!).
+      In this document 2 spaces have been chosen because they appear to be the generally more readable method to the authors of these guidelines.
 
   \section{Spacing}
+  \label{systemverilog_conventions:spacing}
+
+    \begin{keybox}
+      Use spacing which aids readability.
+    \end{keybox}
+
+    \subsection{Tabular Alignment}
+    \label{systemverilog_conventions:spacing:tabular_alignment}
+
+      Tabular alignment is the practice of aligning specific parts of multiple related lines.
+      This allows for ease of reading and comparing multiple related lines.
+
+      \textbf{The use of tabular alignment is strongly encouraged.}
+
+      \begin{goodbox}
+        \lstinputlisting{./conventions/tabular_alignment.sv}
+      \end{goodbox}
+
+    \subsection{Expressions}
+    \label{systemverilog_conventions:spacing:expressions}
+
+      \textbf{Whitespace should be included on both sides of all non-trivial binary operators.}
+
+      \begin{goodbox}
+        \lstinputlisting{./conventions/expression_whitespace.sv}
+      \end{goodbox}
+
+      \begin{badbox}
+        \lstinputlisting{./conventions/expression_whitespace_bad.sv}
+      \end{badbox}
+
+    \subsection{Keywords}
+    \label{systemverilog_conventions:spacing:keywords}
+
+      \textbf{Whitespace should be included on both sides of SystemVerilog keywords.}
+
+      The following exceptions apply:
+      \begin{itemize}
+        \item Before a keyword at the beginning of a line
+        \item After a keyword at the end of a line
+        \item Before keywords which are immediately preceded by an opening parentheses or brace
+      \end{itemize}
+
+      % TODO: Code example
+
+    \subsection{Comma Delimited Lists}
+    \label{systemverilog_conventions:spacing:comma_delimited_lists}
+
+      \textbf{When multiple items on a line are comma delimited each comma must be followed by a space.}
+
+      % TODO: Code example
+
+    \subsection{Definitions}
+    \label{systemverilog_conventions:spacing:definitions}
+
+      \textbf{Add a space around the packed dimensions.}
+
+      Do not add a space -
+      \begin{itemize}
+        \item Between identified and unpacked dimensions
+        \item Between multiple dimensions
+      \end{itemize}
+
+      % TODO: Code example
+
+    \subsection{Parameterized Types}
+    \label{systemverilog_conventions:spacing:parameterized_types}
+
+      \textbf{Add a single space before type parameters, except when part of a qualified name.}
+
+      % TODO: Code example
+
+    \subsection{Labels and Case Items}
+    \label{systemverilog_conventions:spacing:labels_and_case_items}
+
+      \textbf{Do not add a space prior to the colon in a Label or Case item.}
+      \textbf{Add at least one space after the colon in a Label or Case item.}
+
+      % TODO: Code example
+
+    \subsection{Calls}
+    \label{systemverilog_conventions:spacing:calls}
+
+      \textbf{Functions, Task, and Macro calls must not have any space between the name and the the opening parenthesis.}
+      % TODO: Code example
 
   \section{Parentheses}
+  \label{systemverilog_conventions:parentheses}
+
+    \begin{keybox}
+      Parentheses should be used to make operations unambiguous.
+    \end{keybox}
+
+    In any situation where most people would have to spend some modicum of thought, parentheses should be used instead to make the order of operations clear.
 
   \section{Ternary Expressions}
+  \label{systemverilog_conventions:ternary_expressions}
+
+    \begin{keybox}
+      Nested ternary expressions must be enclosed in parentheses unless they are in the false condition.
+      \textbf{At most} 3 ternary expressions may be nested together.
+    \end{keybox}
+
+    % TODO: Code Example
 
   \section{Comments}
+  \label{systemverilog_conventions:comments}
+
+    \begin{keybox}
+      C++ style comments (\lstinline{// comment}) are preferred.
+      C style comments (\lstinline{/* comment */} may also be used)
+    \end{keybox}
+
+    The following principles should be followed regarding comments:
+    \begin{itemize}
+      \item A comment on its own line describes the code that immediately follows.
+      \item Inline comments describe that line of code
+      \item Header style comments (see below) can be used to seperate different functional parts within a module or class.
+    \end{itemize}
+
+    \begin{goodbox}
+      \lstinputlisting{./conventions/comments.sv}
+    \end{goodbox}
 
   \section{Declarations}
+  \label{systemverilog_conventions:declarations}
+
+    \begin{keybox}
+      Signals must be declared before use.
+      Implicit net declarations \textbf{must} not be used.
+    \end{keybox}
