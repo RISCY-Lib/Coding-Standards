@@ -22,14 +22,14 @@
 \fancypagestyle{plain}{
   \fancyhf{}
   \fancyhead[R]{System Verilog Style Guide}
-  \fancyfoot[L]{\copyright Benjamin Davis (under GPL3)}
+  \fancyfoot[L]{\copyright RISCY-Lib Contributors (under CC-BY-4.0)}
   \fancyfoot[R]{Page \thepage \ of \pageref{LastPage}}
 }
 
 \fancypagestyle{title}{
   \fancyhf{}
   \fancyhead[R]{System Verilog Style Guide}
-  \fancyfoot[L]{\copyright Benjamin Davis (under GPL3)}
+  \fancyfoot[L]{\copyright RISCY-Lib Contributors (under CC-BY-4.0)}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,6 +46,25 @@
 
   \pagestyle{title}
   \maketitle
+
+  \newpage
+
+  \vspace*{\fill}
+  \begin{center}
+    This work is licensed under \textbf{Creative Commons Attribution 4.0 International} (\texttt{CC-BY-4.0}).
+
+    It is derived from the \href{https://github.com/lowRISC/style-guides/blob/master/VerilogCodingStyle.md}{lowRISC Verilog Coding Style Guide}
+      under the same license (as of Jan 21, 2022).
+
+    The \texttt{lowRISC Verilog Coding Style Guide} has been modified in the following ways:
+    \begin{itemize}
+      \item Converted from Markdown to LaTeX
+      \item Some underlying style recommendations have been changed
+    \end{itemize}
+
+    Subject to the above the work is \copyright RISCY-Lib Contributors, 2023
+  \end{center}
+  \vspace*{\fill}
 
   \pagestyle{plain}
   \tableofcontents
